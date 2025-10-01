@@ -5,19 +5,25 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "websocket": "node server.js",
+    "dev:all": "concurrently \"npm run dev\" \"npm run websocket\""
   },
   "dependencies": {
+    "concurrently": "^9.2.1",
+    "next": "15.5.4",
     "react": "19.1.0",
     "react-dom": "19.1.0",
-    "next": "15.5.4"
+    "ws": "^8.18.3"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "@tailwindcss/postcss": "^4",
-    "tailwindcss": "^4"
+    "@types/ws": "^8.18.1",
+    "tailwind-scrollbar": "^4.0.2",
+    "tailwindcss": "^4",
+    "typescript": "^5"
   }
 }
