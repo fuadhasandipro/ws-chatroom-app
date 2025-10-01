@@ -1,3 +1,4 @@
+// app/page.tsx
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
@@ -140,28 +141,28 @@ export default function ChatPage() {
 
   if (!isUsernameSet) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 flex items-center justify-center p-4">
-        <div className="bg-white/10 backdrop-blur-lg rounded-3xl shadow-2xl p-8 w-full max-w-md border border-white/20">
-          <div className="text-center mb-8">
-            <div className="w-20 h-20 bg-gradient-to-br from-purple-400 to-blue-500 rounded-full mx-auto mb-4 flex items-center justify-center">
-              <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <div className="fixed inset-0 bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 flex items-center justify-center p-4 overflow-hidden">
+        <div className="bg-white/10 backdrop-blur-lg rounded-3xl shadow-2xl p-6 sm:p-8 w-full max-w-md border border-white/20">
+          <div className="text-center mb-6 sm:mb-8">
+            <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-purple-400 to-blue-500 rounded-full mx-auto mb-3 sm:mb-4 flex items-center justify-center">
+              <svg className="w-8 h-8 sm:w-10 sm:h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
               </svg>
             </div>
-            <h1 className="text-4xl font-bold text-white mb-2">Welcome</h1>
-            <p className="text-blue-200">Enter your name to start chatting</p>
+            <h1 className="text-3xl sm:text-4xl font-bold text-white mb-2">Welcome</h1>
+            <p className="text-sm sm:text-base text-blue-200">Enter your name to start chatting</p>
           </div>
-          <form onSubmit={handleSetUsername} className="space-y-4">
+          <form onSubmit={handleSetUsername} className="space-y-3 sm:space-y-4">
             <input
               type="text"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               placeholder="Your name"
-              className="w-full px-6 py-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent transition-all"
+              className="w-full px-4 sm:px-6 py-3 sm:py-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent transition-all text-sm sm:text-base"
             />
             <button
               type="submit"
-              className="w-full bg-gradient-to-r from-purple-500 to-blue-500 text-white py-4 rounded-2xl font-semibold hover:from-purple-600 hover:to-blue-600 transform hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl"
+              className="w-full bg-gradient-to-r from-purple-500 to-blue-500 text-white py-3 sm:py-4 rounded-2xl font-semibold hover:from-purple-600 hover:to-blue-600 transform hover:scale-105 active:scale-95 transition-all duration-200 shadow-lg hover:shadow-xl text-sm sm:text-base"
             >
               Start Chatting
             </button>
@@ -172,49 +173,49 @@ export default function ChatPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 p-4">
-      <div className="max-w-4xl mx-auto h-screen flex flex-col py-4">
+    <div className="fixed inset-0 bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 overflow-hidden">
+      <div className="h-full w-full max-w-4xl mx-auto flex flex-col">
         {/* Header */}
-        <div className="bg-white/10 backdrop-blur-lg rounded-t-3xl p-6 border border-white/20 border-b-0">
+        <div className="flex-shrink-0 bg-white/10 backdrop-blur-lg p-3 sm:p-4 md:p-6 border-b border-white/20">
           <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-3">
-              <div className="w-12 h-12 bg-gradient-to-br from-purple-400 to-blue-500 rounded-full flex items-center justify-center">
-                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="flex items-center space-x-2 sm:space-x-3 min-w-0">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-purple-400 to-blue-500 rounded-full flex items-center justify-center flex-shrink-0">
+                <svg className="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
                 </svg>
               </div>
-              <div>
-                <h2 className="text-xl font-bold text-white">Chat Room</h2>
-                <p className="text-sm text-blue-200">Logged in as {username}</p>
+              <div className="min-w-0">
+                <h2 className="text-base sm:text-lg md:text-xl font-bold text-white truncate">Chat Room</h2>
+                <p className="text-xs sm:text-sm text-blue-200 truncate">Logged in as {username}</p>
               </div>
             </div>
-            <div className="flex items-center space-x-2">
-              <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
-              <span className="text-sm text-green-300">Online</span>
+            <div className="flex items-center space-x-1 sm:space-x-2 flex-shrink-0">
+              <div className="w-2 h-2 sm:w-3 sm:h-3 bg-green-400 rounded-full animate-pulse"></div>
+              <span className="text-xs sm:text-sm text-green-300 hidden xs:inline">Online</span>
             </div>
           </div>
         </div>
 
         {/* Messages */}
-        <div className="flex-1 bg-white/5 backdrop-blur-lg p-6 overflow-y-auto border-x border-white/20">
-          <div className="space-y-4">
+        <div className="flex-1 overflow-y-auto p-3 sm:p-4 md:p-6 bg-white/5 backdrop-blur-lg">
+          <div className="space-y-3 sm:space-y-4">
             {messages.map((message) => (
               <div
                 key={message.id}
                 className={`flex ${message.sender === username ? 'justify-end' : 'justify-start'}`}
               >
                 <div
-                  className={`max-w-xs lg:max-w-md px-6 py-3 rounded-2xl shadow-lg ${message.sender === username
+                  className={`max-w-[85%] sm:max-w-xs lg:max-w-md px-3 sm:px-4 md:px-6 py-2 sm:py-3 rounded-2xl shadow-lg ${message.sender === username
                     ? 'bg-gradient-to-r from-purple-500 to-blue-500 text-white rounded-br-none'
                     : 'bg-white/10 backdrop-blur-sm text-white border border-white/20 rounded-bl-none'
                     }`}
                 >
-                  <p className="text-xs font-semibold mb-1 opacity-80">
+                  <p className="text-[10px] sm:text-xs font-semibold mb-0.5 sm:mb-1 opacity-80">
                     {message.sender}
                   </p>
-                  <p className="break-words">{message.text}</p>
-                  <p className="text-xs mt-1 opacity-70">
-                    {new Date(message.timestamp).toLocaleTimeString()}
+                  <p className="break-words text-xs sm:text-sm md:text-base">{message.text}</p>
+                  <p className="text-[10px] sm:text-xs mt-0.5 sm:mt-1 opacity-70">
+                    {new Date(message.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                   </p>
                 </div>
               </div>
@@ -223,16 +224,16 @@ export default function ChatPage() {
             {/* Typing Indicator */}
             {typingUsers.length > 0 && (
               <div className="flex justify-start">
-                <div className="bg-white/10 backdrop-blur-sm text-white border border-white/20 px-6 py-3 rounded-2xl rounded-bl-none shadow-lg">
-                  <p className="text-xs font-semibold mb-1 opacity-80">
+                <div className="bg-white/10 backdrop-blur-sm text-white border border-white/20 px-3 sm:px-4 md:px-6 py-2 sm:py-3 rounded-2xl rounded-bl-none shadow-lg max-w-[85%]">
+                  <p className="text-[10px] sm:text-xs font-semibold mb-0.5 sm:mb-1 opacity-80 truncate">
                     {typingUsers.join(', ')}
                   </p>
                   <div className="flex items-center space-x-1">
-                    <span className="text-sm">typing</span>
+                    <span className="text-xs sm:text-sm">typing</span>
                     <div className="flex space-x-1">
-                      <div className="w-2 h-2 bg-blue-400 rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></div>
-                      <div className="w-2 h-2 bg-blue-400 rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></div>
-                      <div className="w-2 h-2 bg-blue-400 rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></div>
+                      <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-blue-400 rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></div>
+                      <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-blue-400 rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></div>
+                      <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-blue-400 rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></div>
                     </div>
                   </div>
                 </div>
@@ -244,18 +245,18 @@ export default function ChatPage() {
         </div>
 
         {/* Input */}
-        <div className="bg-white/10 backdrop-blur-lg rounded-b-3xl p-6 border border-white/20 border-t-0">
-          <form onSubmit={handleSendMessage} className="flex space-x-3">
+        <div className="flex-shrink-0 bg-white/10 backdrop-blur-lg p-3 sm:p-4 md:p-6 border-t border-white/20">
+          <form onSubmit={handleSendMessage} className="flex space-x-2 sm:space-x-3">
             <input
               type="text"
               value={input}
               onChange={handleInputChange}
               placeholder="Type your message..."
-              className="flex-1 px-6 py-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent transition-all"
+              className="flex-1 px-3 sm:px-4 md:px-6 py-2 sm:py-3 md:py-4 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl sm:rounded-2xl text-white placeholder-blue-200 focus:outline-none focus:ring-2 focus:ring-purple-400 focus:border-transparent transition-all text-xs sm:text-sm md:text-base"
             />
             <button
               type="submit"
-              className="px-8 py-4 bg-gradient-to-r from-purple-500 to-blue-500 text-white rounded-2xl font-semibold hover:from-purple-600 hover:to-blue-600 transform hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl"
+              className="px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-4 bg-gradient-to-r from-purple-500 to-blue-500 text-white rounded-xl sm:rounded-2xl font-semibold hover:from-purple-600 hover:to-blue-600 active:scale-95 transform hover:scale-105 transition-all duration-200 shadow-lg hover:shadow-xl text-xs sm:text-sm md:text-base flex-shrink-0"
             >
               Send
             </button>

@@ -1,1 +1,8 @@
 @import "tailwindcss";
+
+html,
+body {
+  @apply overflow-hidden;
+  height: 100dvh;
+  width: 100vw;
+}
