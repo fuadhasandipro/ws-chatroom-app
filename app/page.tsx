@@ -43,7 +43,7 @@ export default function ChatPage() {
     if (!isUsernameSet) return;
 
     // Connect to WebSocket server
-    const ws = new WebSocket('ws://localhost:3001');
+    const ws = new WebSocket('wss://ws-chatroom-production.up.railway.app');
     wsRef.current = ws;
 
     ws.onopen = () => {
@@ -205,8 +205,8 @@ export default function ChatPage() {
               >
                 <div
                   className={`max-w-xs lg:max-w-md px-6 py-3 rounded-2xl shadow-lg ${message.sender === username
-                      ? 'bg-gradient-to-r from-purple-500 to-blue-500 text-white rounded-br-none'
-                      : 'bg-white/10 backdrop-blur-sm text-white border border-white/20 rounded-bl-none'
+                    ? 'bg-gradient-to-r from-purple-500 to-blue-500 text-white rounded-br-none'
+                    : 'bg-white/10 backdrop-blur-sm text-white border border-white/20 rounded-bl-none'
                     }`}
                 >
                   <p className="text-xs font-semibold mb-1 opacity-80">
